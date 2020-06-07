@@ -1,0 +1,44 @@
+﻿@page
+@model RazorSite.Pages.BookList.IndexModel
+@{
+    ViewData["Title"] = "List";
+}
+
+    <div>
+        <a class="btn btn-success " asp-page="/BookList/AddBook">Add Book!</a>
+        <br />
+        <br />
+        <br />
+
+        @if (Model.Book.Count() > 0)
+        {
+            <ul class="list-group">
+
+                @foreach (var item in Model.Book)
+                {
+                    <li class="list-group-item">
+                        Name: @Html.DisplayFor(n => item.Name)
+
+                    </li>
+                    <li class="list-group-item">
+                        Author: @Html.DisplayFor(n => item.Author)
+
+                    </li>
+                    <li class="list-group-item">
+                        Description: @Html.DisplayFor(n => item.Description)
+
+                    </li>
+                    <li class="list-group-item">
+                        ISBN: @Html.DisplayFor(n => item.ISBN)
+
+                    </li>
+                    <li class="list-group-item"><a class="btn btn-success" asp-page="/BookList/EditBook" asp-route-id="@item.Id">Edit Book</a></li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p class="alert-info">There are no books in our database!</p>
+        }
+    </div>
+

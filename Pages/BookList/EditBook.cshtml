@@ -1,0 +1,23 @@
+﻿@page
+@model RazorSite.Pages.BookList.EditBookModel
+@{
+    ViewData["Title"] = "EditBook";
+}
+
+<h1>Edit Book</h1>
+<br/>
+<div>
+    <form class="form-check" method="post">
+        <input type="hidden" asp-for="Book.Id"/>
+        <label for="name">Name:</label>
+        <input class="input-group" placeholder="Name" id="name" asp-for="Book.Name" />
+        <label for="author">Author:</label>
+        <input class="input-group" placeholder="Author" id="author" asp-for="Book.Author" />
+        <label for="desc">Description:</label>
+        <input class="input-group" placeholder="Description" id="desc" asp-for="Book.Description" />
+        <label for="isbn">ISBN:</label>
+        <input class="input-group" placeholder="ISBN" id="isbn" asp-for="Book.ISBN" />
+        <br />
+        <input type="submit" class="btn btn-light" placeholder="Update"/>
+    </form>
+</div>
